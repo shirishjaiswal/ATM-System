@@ -4,25 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountRepo {
-	private static List<AccountHolder> accounts = new ArrayList<>();
+	private static List<AccountHolder> accountHolder = new ArrayList<>();
 	
 	public void addAccount (AccountHolder user) {
-		accounts.add(user);
+		accountHolder.add(user);
 	}
 	
 	public AccountHolder findById(int id) {
-		for (int i = 0; i < accounts.size(); i++) {
-			if(accounts.get(i).getId() == id) {
-				return accounts.get(i);
+		for (int i = 0; i < accountHolder.size(); i++) {
+			if(accountHolder.get(i).getId() == id) {
+				return accountHolder.get(i);
 			}
 		}
 		return null;
 	}
 	
 	public boolean deleteById(int id) {
-		for (int i = 0; i < accounts.size(); i++) {
-			if(accounts.get(i).getId() == id) {
-				accounts.remove(i);
+		for (int i = 0; i < accountHolder.size(); i++) {
+			if(accountHolder.get(i).getId() == id) {
+				accountHolder.remove(i);
 				return true;
 			}
 		}

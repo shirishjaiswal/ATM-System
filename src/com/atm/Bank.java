@@ -46,7 +46,6 @@ public class Bank extends Functionality{
 				return "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ "+isDeleted+" ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~";
 			}
 			else return response;
-			
 		}
 		else if (operation == 3) {
 			String response = login();
