@@ -4,7 +4,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import com.atm.AccountRepo;
 
 
 public class Bank extends Functionality{
@@ -13,20 +12,26 @@ public class Bank extends Functionality{
 	Scanner sc = new Scanner(System.in);
 	
 	public String functionality() {
-		System.out.println("Welcome to " + bankName + " Bank");
-		System.out.println("Please Choose one of below");
-		System.out.println("1 - Create an Account\n"
-				+ "2 - Delete an Account\n"
-				+ "3 - Deposit Balance\n"
-				+ "4 - Withdraw Balance\n"
-				+ "5 - Balance Inquiry\n"
-				+ "6 - Transaction\n"
-				+ "7 - Transaction History\n"
-				+ "8 - Exit\n");
+		StringBuilder display = new StringBuilder();
+		display.append("Welcome to ")
+				.append(bankName)
+				.append("\nYou are here for :: ")
+				.append("\n1 - Create an Account")
+				.append("\n2 - Delete an Account")
+				.append("\n3 - Deposit Balance")
+				.append("\n4 - Withdraw Balance")
+				.append("\n5 - Balance Inquiry")
+				.append("\n6 - Make Transaction")
+				.append("\n7 - Transaction History")
+				.append("\n8 - Exit")
+				.append("\n");
+		
+		System.out.println(display);
+		
 		int operation = 0;
 		while (operation < 1 || operation > 8) {
             try {
-                System.out.print("Please select a valid operation (1-6) : ");
+                System.out.print("Please select a valid operation (1-8) : ");
                 operation = sc.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a number");
@@ -36,16 +41,22 @@ public class Bank extends Functionality{
 		
 		if( operation == 1) {
 			int userId = createAccount();
-			return "Your user id is : " + userId+ " \nThis is required while returning to bank\n"
-					+ "- - - - - - - - - - - - ACCOUNT CREATED - - - - - - - - - - - -";
+			StringBuilder response = new StringBuilder();
+			response.append("\n- - - - - - - - - - - - - - ACCOUNT  CREATED - - - - - - - - - - - - - -");
+			response.append("\nYour user id is : ").append(userId);
+			response.append("\nThis is required while returning to bank or ATM");
+			response.append("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+			return  response.toString();
 		}
 		else if (operation == 2) {
-			String response = login();
-			if(Character.isDigit(response.charAt(0))) {
-				String isDeleted = deleteAccount(Integer.parseInt(response));
-				return "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ "+isDeleted+" ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~";
+			String loginResponse = login();
+			if(Character.isDigit(loginResponse.charAt(0))) {
+				String isDeleted = deleteAccount(Integer.parseInt(loginResponse));
+				StringBuilder response = new StringBuilder();
+				response.append("\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ").append(isDeleted).append(" ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+				return  response.toString();
 			}
-			else return response;
+			else return loginResponse;
 		}
 		else if (operation == 3) {
 			String response = login();
@@ -94,7 +105,7 @@ public class Bank extends Functionality{
 	}
 
 	private int createAccount() {
-		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CREATING ACCOUNT ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+		System.out.println("\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CREATING ACCOUNT ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
 		AccountHolder user = new AccountHolder();
 		user.setId(random.nextInt(Integer.MAX_VALUE - 100000) + 1000000);
 		System.out.print("Create Password : ");
@@ -173,7 +184,7 @@ public class Bank extends Functionality{
                     	return String.valueOf(userId);
                     }
                     else {
-                    	return "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Account is Blocked ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~";
+                    	return "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Blocked  Account ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~";
                     }
                 } else {
                     System.out.println("Incorrect user ID or password. Please try again.");
@@ -205,7 +216,7 @@ public class Bank extends Functionality{
 	}
 	
 	public String depositBalance(int userId) {
-		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DEPOSIT BALANCE ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DEPOSIT  BALANCE ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
 		AccountHolder user = accountRepo.findById(userId);
 		
 		int amountToDeposit = 0;
@@ -226,7 +237,7 @@ public class Bank extends Functionality{
 		user.setBalance(user.getBalance() + amountToDeposit);
 		deleteAccount(userId);
 		
-		Transaction transaction = newTransaction("Self", "Self", "Deposit", amountToDeposit);
+		Transaction transaction = newTransaction("Self", "Self", Operation.DEPOSIT.toString(), amountToDeposit);
 		List<Transaction> transactionHistory = user.getTransactionHistory();
 		transactionHistory.add(transaction);
 		user.setTransactionHistory(transactionHistory);

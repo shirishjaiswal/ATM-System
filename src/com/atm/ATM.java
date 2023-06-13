@@ -10,7 +10,7 @@ public class ATM extends Functionality{
 		System.out.println("Please Choose one of below");
 		System.out.println("1 - Withdraw Balance\n"
 				+ "2 - Balance Inquiry\n"
-				+ "3 - Transaction\n"
+				+ "3 - Make Transaction\n"
 				+ "4 - Exit\n");
 		int operation = 0;
 		while (operation < 1 || operation > 4) {

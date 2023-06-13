@@ -37,7 +37,7 @@ public abstract class Functionality {
 		user.setBalance(user.getBalance() - amountToWithdraw);
 		deleteAccount(userId);
 		
-		Transaction transaction = newTransaction("Self", "Self", "Withdraw", amountToWithdraw);
+		Transaction transaction = newTransaction("Self", "Self", Operation.WITHDRAW.toString(), amountToWithdraw);
 		List<Transaction> transactionHistory = user.getTransactionHistory();
 		transactionHistory.add(transaction);
 		user.setTransactionHistory(transactionHistory);
@@ -47,7 +47,7 @@ public abstract class Functionality {
 	}
 	
 	public String transaction(int userId) {
-		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ TRANSACTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ MAKE TRANSACTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
 		AccountHolder user = accountRepo.findById(userId);
 		int recipientId = 0;
 		boolean isValid = false;
@@ -89,12 +89,12 @@ public abstract class Functionality {
 		accountRepo.deleteById(userId);
 		accountRepo.deleteById(recipientId);
 		
-		Transaction senderTransaction = newTransaction(String.valueOf(recipient.getId()), "Self", "Transact", amountToTransact);
+		Transaction senderTransaction = newTransaction(String.valueOf(recipient.getId()), "Self", Operation.TRANSACT.toString(), amountToTransact);
 		List<Transaction> senderTransactionHistory = user.getTransactionHistory();
 		senderTransactionHistory.add(senderTransaction);
 		user.setTransactionHistory(senderTransactionHistory);
 		
-		Transaction recipientTransaction = newTransaction("Self", String.valueOf(user.getId()), "Deposit", amountToTransact);
+		Transaction recipientTransaction = newTransaction("Self", String.valueOf(user.getId()), Operation.DEPOSIT.toString(), amountToTransact);
 		List<Transaction> recipientTransactionHistory = recipient.getTransactionHistory();
 		recipientTransactionHistory.add(recipientTransaction);
 		recipient.setTransactionHistory(recipientTransactionHistory);
@@ -107,25 +107,35 @@ public abstract class Functionality {
 	}
 	
 	public String transactionHistory (int userId) {
-		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ TRANSACTION HISTORY ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ TRANSACTION  HISTORY ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
 		AccountHolder user = accountRepo.findById(userId);
 		List<Transaction> transactionHistory = user.getTransactionHistory();
 		if(transactionHistory.isEmpty()) {
 			return "============== NO DATA AVAILABLE ==============";
 		}
 		for (Transaction statement : transactionHistory) {
-			System.out.println("____________________ " +statement.getOperation()+" ____________________");
-			System.out.println("Processed Through : " + statement.getVia());
-			System.out.println("Date and Time : " + statement.getDate_Time());
-			System.out.println("Sent By : " + statement.getSender());
-			System.out.println("Recived By : " + statement.getRecipient());
-			System.out.println("Amount Transacted : " + statement.getAmount());
+			StringBuilder statementDetails = new StringBuilder();
+			statementDetails.append("\n____________________ ")
+				.append(statement.getOperation())
+				.append(" ____________________")
+				.append("\nProcessed Through : ")
+				.append(statement.getVia())
+				.append("\nDate and Time : ")
+				.append(statement.getDate_Time())
+				.append("\nSent By : ")
+				.append(statement.getSender())
+				.append("\nRecived By : ")
+				.append(statement.getRecipient())
+				.append("\nAmount Transacted : ")
+				.append(statement.getAmount());
+
+			System.out.println(statementDetails);
 		}
-		return "====== END ======";
+		return "\n=========== END ===========";
 	}
 	
 	public String checkBalance(int userId) {
-		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CHECK BALANCE ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+		System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  CHECK  BALANCE  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
 		AccountHolder user = accountRepo.findById(userId);
 		return user.getBalance() + "";
 	}

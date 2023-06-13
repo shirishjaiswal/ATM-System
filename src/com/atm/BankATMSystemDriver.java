@@ -3,18 +3,22 @@ package com.atm;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Driver {
+public class BankATMSystemDriver {
 	public static void main (String [] args) {
 		Scanner sc = new Scanner (System.in);
 		Bank bank = new Bank();
 		ATM atm = new ATM();
 		int bankOrAtm = 0;
 		while (bankOrAtm != 3) {
-			System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ WELCOME ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~\n"
-					+ "1 - Bank\n"
-					+ "2 - ATM\n"
-					+ "3 - Exit");
-			System.out.print("select from options above : ");
+			StringBuilder display = new StringBuilder();
+			display.append("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ WELCOME ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
+					.append("\n1 - Bank")
+					.append("\n2 - ATM")
+					.append("\n3 - Exit")
+					.append("\nYou want to visit : ");
+
+			System.out.print(display);
+
 			while (bankOrAtm < 1 || bankOrAtm > 3) {
 	            try {
 	                bankOrAtm = sc.nextInt();

@@ -1,5 +1,5 @@
-# **Project Name: Bank-ATM-System**
-## **Technoloy: Java**
+# **Project Name: ATM-System Project**
+## **Technology: Java**
 ## **Project Type: Console Based**
 ___
 ## **Project Description :**
@@ -19,10 +19,10 @@ This Java program represents an ATM system implemented using object-oriented pri
 ## **UML Diagram**
 [![](https://mermaid.ink/img/pako:eNrNVttu2zAM_RVDTw6SJrGdq1EEaNENLbAL0PZpyzAwEuMItSVDlpNmXf598i2xk972Miwvlo-PSPGQIvNEqGRIfEJDSJIrDoGCaC7mwjK_HLMuKJWp0NcyZKisp-ITZ77FhS5eYkPbSGWgO624CApUYYCJVsiuQKNvfZIUwmx5zyMsGAIibO5ZQAiCYt02F7W3RSjpAxpHCylDhPKcWoFIgGouxTVPtFRb484szu8PH2YFtW0FqDWqxG5VQNIEds3oayaq2JkJ4mcWxbNByRgVZPRmZGsOTSBBYfQ8lozymKPQTRiiLAE1Gf46ijKHtxjLKgoooKSUqpHlSixgrMTtku43y6HlW2vJWUlfcsEutzfMLqujdcQuaQxD1HhEPJg5OvrHVOTqQ8j1tjp8Qo1CFISojMIhQL8ebelyw_WKKdhcFvVlpwmqm73vutbtWjG9k1bW3GtsukL68A7nhTSV5i8Tz88vFuZuGf-zKlehDLiw3-YJ3NRq2j4puc5RZXZOK7pTr0jjsWbv2RRegnioMrcw6y8n994YYDLyrdv8-UKO28t6KdgnGiuEg3at-nXBR65Ppfm6RqU4w7ckPOH9CwlNKcQy4frtojm-6vefrf0d19Gp1q_L-J_LchTsleLrw1BqR8CFZRemrO8_LFBBUm-IzVF2djZrOsjr9Ozs96zZdMw-o-lzeOk-M5TtbQBmz1w0m1cOH3oT6ZAIlTkzM_M3D2FO9ArNICG-WTJcQhrqOZmLnaFCquXdVlDia5Vih6RxNofKiU38JYTJHv3AuOlIezCUYOIl_hPR2zgb9oHpWMYklWLJgwxPVWjgldZx4vd62eduYFpmuuhSGfUSzlag9Go9HfVG7mgCroejsQdDz2N04UwnS3fgLNm477hAdrsOiUF8kzKqjor5cT6XfzSyR07JHD8Sf-R2x-7EWPH6w8lk6DgdsiX-cNj1nMl0NJpMPWfQHzjG7K_cZr87HQ8GfWc6dr2xM5x67u4PwfPk-A?type=png)](https://mermaid.live/edit#pako:eNrNVttu2zAM_RVDTw6SJrGdq1EEaNENLbAL0PZpyzAwEuMItSVDlpNmXf598i2xk972Miwvlo-PSPGQIvNEqGRIfEJDSJIrDoGCaC7mwjK_HLMuKJWp0NcyZKisp-ITZ77FhS5eYkPbSGWgO624CApUYYCJVsiuQKNvfZIUwmx5zyMsGAIibO5ZQAiCYt02F7W3RSjpAxpHCylDhPKcWoFIgGouxTVPtFRb484szu8PH2YFtW0FqDWqxG5VQNIEds3oayaq2JkJ4mcWxbNByRgVZPRmZGsOTSBBYfQ8lozymKPQTRiiLAE1Gf46ijKHtxjLKgoooKSUqpHlSixgrMTtku43y6HlW2vJWUlfcsEutzfMLqujdcQuaQxD1HhEPJg5OvrHVOTqQ8j1tjp8Qo1CFISojMIhQL8ebelyw_WKKdhcFvVlpwmqm73vutbtWjG9k1bW3GtsukL68A7nhTSV5i8Tz88vFuZuGf-zKlehDLiw3-YJ3NRq2j4puc5RZXZOK7pTr0jjsWbv2RRegnioMrcw6y8n994YYDLyrdv8-UKO28t6KdgnGiuEg3at-nXBR65Ppfm6RqU4w7ckPOH9CwlNKcQy4frtojm-6vefrf0d19Gp1q_L-J_LchTsleLrw1BqR8CFZRemrO8_LFBBUm-IzVF2djZrOsjr9Ozs96zZdMw-o-lzeOk-M5TtbQBmz1w0m1cOH3oT6ZAIlTkzM_M3D2FO9ArNICG-WTJcQhrqOZmLnaFCquXdVlDia5Vih6RxNofKiU38JYTJHv3AuOlIezCUYOIl_hPR2zgb9oHpWMYklWLJgwxPVWjgldZx4vd62eduYFpmuuhSGfUSzlag9Go9HfVG7mgCroejsQdDz2N04UwnS3fgLNm477hAdrsOiUF8kzKqjor5cT6XfzSyR07JHD8Sf-R2x-7EWPH6w8lk6DgdsiX-cNj1nMl0NJpMPWfQHzjG7K_cZr87HQ8GfWc6dr2xM5x67u4PwfPk-A)
 
-## **Driver Class**
-### **Driver Class Structure:**
+## **BankATMSystemDriver Class**
+### **BankATMSystemDriver Class Structure:**
 The program is located in the *com.atm* package.
-The main entry point of the program is the **Driver class**, which contains the ***main*** method.
+The main entry point of the program is the **BankATMSystemDriver class**, which contains the ***main*** method.
 The program uses a Scanner object to read user input from the console.
 It includes two main classes: **Bank** and **ATM**.
 The Bank class handles bank-related functionalities, while the ATM class handles ATM-related functionalities.
@@ -63,7 +63,7 @@ Selecting the Exit option will display a farewell message and terminate the prog
 
 The Bank class provides the following banking operations:
 
-**NOTE :** Wach functionality program prompts the user to enter their user **ID** and **password** except **Creating an Account** and **Exiting**.
+**NOTE :** Each functionality program prompts the user to enter their user **ID** and **password** except **Creating an Account** and **Exiting**.
 
 **Creating an Account:**
 
@@ -115,7 +115,7 @@ When the "Exit" option is selected, a farewell message is returned, and the prog
 The ATM class provides the following ATM operations:
 
 
-**NOTE :** Wach functionality program prompts the user to enter their user **ID** and **password** except **Exiting**.
+**NOTE :** Each functionality program prompts the user to enter their user **ID** and **password** except **Exiting**.
 
 **Withdraw Balance:**
 
