@@ -20,7 +20,7 @@ public class Bank extends Functionality{
 				.append("\n2 - Delete an Account")
 				.append("\n3 - Deposit Balance")
 				.append("\n4 - Withdraw Balance")
-				.append("\n5 - Balance Inquiry")
+				.append("\n5 - Balance Inquiry / Unblock Account")
 				.append("\n6 - Make Transaction")
 				.append("\n7 - Transaction History")
 				.append("\n8 - Exit")
@@ -62,7 +62,7 @@ public class Bank extends Functionality{
 			String response = login();
 			if(Character.isDigit(response.charAt(0))) {
 				String isDeposited = depositBalance(Integer.parseInt(response));
-				return "Update amount " + isDeposited;
+				return "Balance Info : " + isDeposited;
 			}
 			else return response;
 		}
@@ -70,7 +70,7 @@ public class Bank extends Functionality{
 			String response = login();
 			if(Character.isDigit(response.charAt(0))) {
 				String isWithdrawn = withdrawBalance(Integer.parseInt(response));
-				return "Update amount " + isWithdrawn;
+				return "Balance Info : " + isWithdrawn;
 			}
 			else return response;
 		}

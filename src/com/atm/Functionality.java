@@ -32,7 +32,7 @@ public abstract class Functionality {
 			}
 		}
 		if(user.getBalance() < amountToWithdraw) {
-			return "InSufficient Balance";
+			return "Insufficient Balance";
 		}
 		user.setBalance(user.getBalance() - amountToWithdraw);
 		deleteAccount(userId);
