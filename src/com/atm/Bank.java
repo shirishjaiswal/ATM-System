@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Bank extends Functionality{
 	private String bankName = "iNeuron Bank";
 	private Random random = new Random();
-	Scanner sc = new Scanner(System.in);
 	
 	public String functionality() {
 		StringBuilder display = new StringBuilder();
