@@ -20,11 +20,7 @@ This Java program represents an ATM system implemented using object-oriented pri
 ![High Level Diagram](image1.png)
 
 ## **UML Diagram**
-<<<<<<< HEAD
 ![UML Diagram](image1-1.png)
-=======
-![image1](https://github.com/shirishjaiswal/ATM-System/assets/98471211/2138c302-7f7a-4bc1-81f3-8f697539ff9e)
->>>>>>> 3608da6fff2894c4d46c1d55ea6e8e55899d6a99
 
 ## **BankATMSystemDriver Class**
 ### **BankATMSystemDriver Class Structure:**
