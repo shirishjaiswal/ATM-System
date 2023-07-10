@@ -16,8 +16,11 @@ ___
 
 This Java program represents an ATM system implemented using object-oriented principles. It allows users to interact with either the bank or the ATM functionality by selecting options from a menu. The program utilizes the Bank and ATM classes to handle the respective functionalities.
 
+## **High Level Diagram**
+![High Level Diagram](image1.png)
+
 ## **UML Diagram**
-[![](https://drive.google.com/file/d/1-2yr7aa6KKrf6CnCP5AYfxy6kLNYZk7j/view?usp=sharing)
+![UML Diagram](image1-1.png)
 
 ## **BankATMSystemDriver Class**
 ### **BankATMSystemDriver Class Structure:**
